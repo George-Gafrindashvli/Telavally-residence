@@ -1,0 +1,208 @@
+.gallery-page {
+  width: 90%;
+  max-width: 1400px;
+  margin: 60px auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gallery-header h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.gallery-header p {
+  color: #666;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* ფილტრის მენიუ */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 22px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn:hover {
+  background: rgba(0, 0, 0, 0.03);
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* აქტიური ფილტრის ღილაკი */
+.filter-btn.active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* გალერეის ბადე */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+/* ფოტოს ბარათი */
+.gallery-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+  /* ფოტოების გაჩენის ნაზი ანიმაცია ფილტრაციისას */
+  animation: fadeInImg 0.4s ease forwards; 
+}
+
+@keyframes fadeInImg {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.gallery-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* ჰოვერ ეფექტი - ფოტოს ჩამუქება და ტექსტის გამოჩენა */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* შავი გამჭვირვალე ფონი */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-overlay span {
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+/* მაუსის მიტანისას მოქმედება */
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-card:hover .gallery-overlay span {
+  transform: translateY(0);
+}
+
+/* --- მოდალური ფანჯრის სტილები (Lightbox) --- */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* მუქი გამჭვირვალე ფონი */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* უნდა იყოს ჰედერის ზემოთაც კი */
+  cursor: zoom-out; /* მიანიშნებს, რომ კლიკზე დაიხურება */
+  animation: fadeInModal 0.25s ease-out;
+}
+
+/* გახსნილი დიდი ფოტო */
+.modal-content {
+  max-width: 85%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  cursor: default;
+  animation: zoomInImg 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* დახურვის "X" ღილაკი */
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 45px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #fff;
+}
+
+/* ანიმაციები */
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomInImg {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* მობილურებზე ცოტა დავაპატარაოთ "X" ღილაკი */
+@media (max-width: 576px) {
+  .modal-close {
+    top: 20px;
+    right: 25px;
+    font-size: 35px;
+  }
+  .modal-content {
+    max-width: 95%;
+  }
+}
+/* ადაპტაცია მობილურებისთვის */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  .gallery-img-wrapper {
+    height: 200px;
+  }
+}
