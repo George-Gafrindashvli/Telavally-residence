@@ -21,7 +21,7 @@ const categories = [
   { code: 'restaurant', name: 'restaurant' },
   { code: 'terrace', name: 'terrace' }
 ];
-
+ 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('all');
   // 🔥 სთეითი გახსნილი ფოტოს შესანახად
