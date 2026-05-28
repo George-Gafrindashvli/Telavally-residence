@@ -7,8 +7,8 @@ const translations = {
       about: 'About Us'
     },
     home: {
-      welcomeTitle: 'Welcome to Luxury & Comfort',
-      welcomeSubtitle: 'Experience the heart of Kakheti in style',
+      welcomeTitle: 'Come to telavally residence',
+      welcomeSubtitle: 'The most cozy place',
       ourSpaces: 'Our Spaces',
       contactUs: 'Contact Us',
       followUs: 'Follow Us',
@@ -31,11 +31,11 @@ const translations = {
       about: 'ჩვენს შესახებ'
     },
     home: {
-      welcomeTitle: 'მოგვისმენეთ ლუქსისა და კომფორტულობის გამო',
-      welcomeSubtitle: 'გამოცანიერეთ ქავთალის გარსში სტილით',
+      welcomeTitle: 'მობრძანდით თელავი რეზიდენსში',
+      welcomeSubtitle: 'ყველაზე მყუდრო ადგილი',
       ourSpaces: 'ჩვენი სივრცეები',
-      contactUs: 'დაგვიკავწუსთოდ',
-      followUs: 'გამოიმენთეთ ჩვენით',
+      contactUs: 'დაგვიკავშირდით',
+      followUs: 'გამოგვყევით',
       instagram: 'ინსტაგრამი',
       facebook: 'ფეისბუკი',
       address: 'შოთა რუსტაველის ქურდზე, თელავი, საქართველო',

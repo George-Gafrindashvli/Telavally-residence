@@ -13,13 +13,13 @@ const galleryData = [
 
 const categories = [
   { code: 'all', name: 'All' },
-  { code: 'building', name: 'შენობა' },
-  { code: 'pool', name: 'აუზი' },
-  { code: 'jacuzzi', name: 'ჯაკუზი' },
-  { code: 'vineyards', name: 'ვენახები' },
-  { code: 'sports', name: 'სპორტი' },
-  { code: 'restaurant', name: 'რესტორანი' },
-  { code: 'terrace', name: 'ტერასა' }
+  { code: 'building', name: 'building' },
+  { code: 'pool', name: 'pool' },
+  { code: 'jacuzzi', name: 'jacuzzi' },
+  { code: 'vineyards', name: 'vineyards' },
+  { code: 'sports', name: 'sports' },
+  { code: 'restaurant', name: 'restaurant' },
+  { code: 'terrace', name: 'terrace' }
 ];
 
 export default function Gallery() {
