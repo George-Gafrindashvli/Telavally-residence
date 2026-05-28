@@ -1,27 +1,14 @@
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useLanguage from '../../context/useLanguage';
 import './Header.css';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState('GEO');
+  const { language, setLanguage, t } = useLanguage();
 
-  const languages = [
-    { code: 'ENG', name: 'English' },
-    { code: 'GEO', name: 'ქართული' },
-    { code: 'RUS', name: 'Русский' }
-  ];
-
-  const handleLangChange = (code) => {
-    setCurrentLang(code);
-    setIsOpen(false);
-  };
-
-  // ნავიგაციის მასივი, რომ კოდი იყოს სუფთა და დინამიური
   const navigation = [
-    { path: '/', label: 'Home', end: true },
-    { path: '/rooms', label: 'Rooms', end: false },
-    { path: '/gallery', label: 'Gallery', end: false }
+    { path: '/', labelKey: 'navbar.home', end: true },
+    { path: '/rooms', labelKey: 'navbar.rooms', end: false },
+    { path: '/gallery', labelKey: 'navbar.gallery', end: false }
   ];
 
   return (
@@ -32,10 +19,9 @@ export default function Header() {
           alt="logo" 
           className='logo' 
         />
-        <h1>telavally residence</h1>
+        <h1>{t('common.brandName')}</h1>
       </div>
 
-      {/* მთავარი ნავიგაცია */}
       <ul className='nav-links'>
         {navigation.map((item) => (
           <li key={item.path}>
@@ -44,32 +30,25 @@ export default function Header() {
               end={item.end}
               className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}
             >
-              {item.label}
+              {t(item.labelKey)}
             </NavLink>
           </li>
         ))}
       </ul>
 
-      {/* ენების დროპდაუნი */}
-      <div className='lang-dropdown-container'>
-        <button className='lang-button' onClick={() => setIsOpen(!isOpen)}>
-          <span>{currentLang}</span>
-          <span className={`arrow ${isOpen ? 'open' : ''}`}>▾</span>
+      <div className='lang-buttons'>
+        <button 
+          className={`lang-btn ${language === 'ka' ? 'active' : ''}`}
+          onClick={() => setLanguage('ka')}
+        >
+          KA
         </button>
-        
-        {isOpen && (
-          <ul className='dropdown-menu'>
-            {languages.map((lang) => (
-              <li 
-                key={lang.code} 
-                className={currentLang === lang.code ? 'active-lang' : ''}
-                onClick={() => handleLangChange(lang.code)}
-              >
-                {lang.name}
-              </li>
-            ))}
-          </ul>
-        )}
+        <button 
+          className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+          onClick={() => setLanguage('en')}
+        >
+          EN
+        </button>
       </div>
     </div>
   );

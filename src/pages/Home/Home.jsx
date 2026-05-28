@@ -1,24 +1,22 @@
 import { useState, useEffect } from "react";
+import useLanguage from "../../context/useLanguage";
 import "./Home.css";
 
-// სლაიდერის 3 ფოტო
 const heroImages = [
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop", // შენობა
-  "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1600&auto=format&fit=crop", // აუზი
-  "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1600&auto=format&fit=crop"  // ვენახები
+  "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1600&auto=format&fit=crop"
 ];
 
 export default function Home() {
-  // სთეითი მიმდინარე ფოტოს ინდექსისთვის
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
-    // ტაიმერი, რომელიც 5 წამში ერთხელ ცვლის ფოტოს
     const timer = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % heroImages.length);
-    }, 5000); // 5000ms = 5 წამი
+    }, 5000);
 
-    // ვასუფთავებთ ტაიმერს კომპონენტის "მოკვლისას"
     return () => clearInterval(timer);
   }, []);
 
@@ -30,15 +28,15 @@ export default function Home() {
           <img
             key={index}
             src={imgUrl}
-            alt={`Telavally Residence View ${index + 1}`}
+            alt={`${t('common.brandName')} View ${index + 1}`}
             /* ფოტოს ვაძლევთ კლასს 'active' მხოლოდ მაშინ, როცა მისი ინდექსი ემთხვევა სთეითს */
             className={`hero-image ${index === currentSlide ? "active" : ""}`}
           />
         ))}
         
         <div className="hero-overlay">
-          <h2>Welcome to Luxury & Comfort</h2>
-          <p>Experience the heart of Kakheti in style</p>
+          <h2>{t('home.welcomeTitle')}</h2>
+          <p>{t('home.welcomeSubtitle')}</p>
           
           {/* პატარა წერტილები (ინდიკატორები) სლაიდერის ქვემოთ */}
           <div className="slider-dots">
@@ -55,7 +53,7 @@ export default function Home() {
 
       {/* 3 სურათიანი გალერეის სექცია */}
       <div className="gallery-section">
-        <h3 className="section-title">Our Spaces</h3>
+        <h3 className="section-title">{t('home.ourSpaces')}</h3>
         <div className="photos">
           <div className="photo-card">
             <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=600&auto=format&fit=crop" alt="Deluxe Room" />
@@ -73,28 +71,28 @@ export default function Home() {
       <footer className="footer-section">
         <div className="footer-content">
           <div className="contact-info">
-            <h4>Contact Us</h4>
-            <p>📍 Shota Rustaveli St, Telavi, Georgia</p>
-            <p>📞 +995 555 12 34 56</p>
-            <p>✉️ info@telavally.ge</p>
+            <h4>{t('home.contactUs')}</h4>
+            <p>📍 {t('home.address')}</p>
+            <p>📞 {t('home.phone')}</p>
+            <p>✉️ {t('home.email')}</p>
           </div>
           
           <div className="social-links">
-            <h4>Follow Us</h4>
+            <h4>{t('home.followUs')}</h4>
             <div className="social-buttons">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-                <span>Instagram</span>
+                <span>{t('home.instagram')}</span>
               </a>
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
-                <span>Facebook</span>
+                <span>{t('home.facebook')}</span>
               </a>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Telavally Residence. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {t('common.brandName')}. {t('common.allRightsReserved')}.</p>
         </div>
       </footer>
     </div>
