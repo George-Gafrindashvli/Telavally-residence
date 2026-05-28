@@ -14,8 +14,8 @@ const translations = {
       followUs: 'Follow Us',
       instagram: 'Instagram',
       facebook: 'Facebook',
-      address: 'Shota Rustaveli St, Telavi, Georgia',
-      phone: '+995 555 12 34 56',
+      address: 'Shalauri Village, Telavi, Georgia',
+      phone: '+032 208 88 37',
       email: 'info@telavally.ge'
     },
     gallery: {
@@ -96,7 +96,7 @@ const translations = {
       }
     },
     common: {
-      brandName: 'telavally residence',
+      brandName: 'telavalley residence',
       allRightsReserved: 'All rights reserved'
     }
   },
@@ -116,8 +116,8 @@ const translations = {
       followUs: 'გამოგვყევით',
       instagram: 'ინსტაგრამი',
       facebook: 'ფეისბუკი',
-      address: 'შოთა რუსთაველის ქუჩა, თელავი, საქართველო',
-      phone: '+995 555 12 34 56',
+      address: 'სოფ. შალაური, თელავი, საქართველო',
+      phone: '+032 208 88 37',
       email: 'info@telavally.ge'
     },
     gallery: {
@@ -198,7 +198,7 @@ const translations = {
       }
     },
     common: {
-      brandName: 'თელავი რეზიდენსი',
+      brandName: 'თელაველი რეზიდენს',
       allRightsReserved: 'ყველა უფლება დაცულია'
     }
   }

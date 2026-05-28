@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import useLanguage from '../../context/useLanguage';
 import './Header.css';
+import pfpImage from '../../assets/avatar/pfp.png';
 
 export default function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -15,7 +16,7 @@ export default function Header() {
     <div className='header'>
       <div className='logo-container'>
         <img 
-          src="https://e7.pngegg.com/pngimages/722/126/png-clipart-web-development-computer-icons-world-wide-web-logo-symmetry.png" 
+          src={pfpImage} 
           alt="logo" 
           className='logo' 
         />

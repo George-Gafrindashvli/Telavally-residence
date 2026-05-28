@@ -1,11 +1,21 @@
 import { useState, useEffect } from "react";
 import useLanguage from "../../context/useLanguage";
 import "./Home.css";
+import banner1 from '../../assets/images/bannerimg1.png'
+import banner2 from '../../assets/images/bannerimg2.png'
+import banner3 from '../../assets/images/bannerimg3.png'
+import sauna from '../../assets/images/sauna.png'
+import jacuzzi from '../../assets/images/jacuzzi.png'
+import baketball from '../../assets/images/basketball.png'
+
+
+
+
 
 const heroImages = [
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1600&auto=format&fit=crop"
+  banner1,
+  banner2,
+  banner3,
 ];
 
 export default function Home() {
@@ -56,13 +66,13 @@ export default function Home() {
         <h3 className="section-title">{t('home.ourSpaces')}</h3>
         <div className="photos">
           <div className="photo-card">
-            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=600&auto=format&fit=crop" alt="Deluxe Room" />
+            <img src={sauna} alt="Deluxe Room" />
           </div>
           <div className="photo-card">
-            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=600&auto=format&fit=crop" alt="Lobby & Lounge" />
+            <img src={jacuzzi} alt="Lobby & Lounge" />
           </div>
           <div className="photo-card">
-            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600&auto=format&fit=crop" alt="View & Nature" />
+            <img src={baketball} alt="View & Nature" />
           </div>
         </div>
       </div>
@@ -80,11 +90,11 @@ export default function Home() {
           <div className="social-links">
             <h4>{t('home.followUs')}</h4>
             <div className="social-buttons">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-item">
+              <a href="https://www.instagram.com/telavalleyresidence/" target="_blank" rel="noreferrer" className="social-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
                 <span>{t('home.instagram')}</span>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-item">
+              <a href="https://www.facebook.com/profile.php?id=100082167439226" target="_blank" rel="noreferrer" className="social-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
                 <span>{t('home.facebook')}</span>
               </a>
