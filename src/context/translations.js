@@ -109,7 +109,7 @@ const translations = {
       about: 'ჩვენს შესახებ'
     },
     home: {
-      welcomeTitle: 'მობრძანდით თელავი რეზიდენსში',
+      welcomeTitle: 'მობრძანდით თელაველი რეზიდენსში',
       welcomeSubtitle: 'ყველაზე მყუდრო ადგილი',
       ourSpaces: 'ჩვენი სივრცეები',
       contactUs: 'დაგვიკავშირდით',

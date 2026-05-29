@@ -2,34 +2,25 @@ import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import useLanguage from '../../context/useLanguage';
 import './RoomDetails.css';
-
-// მხოლოდ სურათები რჩება აქ — ტექსტი translations-ში გადავიდა
-const roomImages = {
-  'standard-double': {
-    mainImage: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=600&auto=format&fit=crop'
-    ]
-  },
-  'deluxe-king-suite': {
-    mainImage: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=600&auto=format&fit=crop'
-    ]
-  },
-  'family-apartment': {
-    mainImage: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1200&auto=format&fit=crop',
-    gallery: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=600&auto=format&fit=crop'
-    ]
-  }
-};
+import first1 from "../../assets/houses/firstHouse/first.jpeg"
+import first2 from "../../assets/houses/firstHouse/second.jpeg"
+import first3 from "../../assets/houses/firstHouse/third.jpeg"
+import first4 from "../../assets/houses/firstHouse/fourth.jpeg"
+import first5 from "../../assets/houses/firstHouse/fifth.jpeg"
+import second1 from "../../assets/houses/secondHouse/first.jpeg"
+import second2 from "../../assets/houses/secondHouse/second.jpeg"
+import second3 from "../../assets/houses/secondHouse/third.jpeg"
+import second4 from "../../assets/houses/secondHouse/fourth.jpeg"
+import second5 from "../../assets/houses/secondHouse/fifght.jpeg"
+import second6 from "../../assets/houses/secondHouse/Sixth.jpeg"
+import second7 from "../../assets/houses/secondHouse/seventh.jpeg"
+import third1 from "../../assets/houses/third/first.jpeg"
+import third2 from "../../assets/houses/third/second.jpeg"
+import third3 from "../../assets/houses/third/third.jpeg"
+import third4 from "../../assets/houses/third/fourth.jpeg"
+import third5 from "../../assets/houses/third/fifght.jpeg"
+import third6 from "../../assets/houses/third/sisth.jpeg"
+import third7 from "../../assets/houses/third/seventh.jpeg"
 
 // ფასები ცალკე (ენა-დამოუკიდებელი)
 const roomPrices = {
@@ -38,17 +29,20 @@ const roomPrices = {
   'family-apartment':  '$350'
 };
 
+// ოთახების ფოტოები
+const roomImages = {
+  'standard-double': [first1, first2, first3, first4, first5],
+  'deluxe-king-suite': [second1, second2, second3, second4, second5, second6, second7],
+  'family-apartment': [third1, third2, third3, third4, third5, third6, third7]
+};
+
 export default function RoomDetail() {
   const { id } = useParams();
   const { t } = useLanguage();
 
-  const images = roomImages[id];
-  const [activeImage, setActiveImage] = useState(images?.mainImage);
-
-  // ოთახის translated მონაცემები
   const roomData = t(`roomDetails.rooms.${id}`);
 
-  if (!images || typeof roomData !== 'object') {
+  if (typeof roomData !== 'object') {
     return (
       <div className="room-not-found">
         <h2>{t('roomDetails.notFound')}</h2>
@@ -61,6 +55,8 @@ export default function RoomDetail() {
   const description = t(`roomDetails.rooms.${id}.description`);
   const amenities   = t(`roomDetails.rooms.${id}.amenities`);
   const price       = roomPrices[id];
+  const images      = roomImages[id] || [];
+  const [selectedImg, setSelectedImg] = useState(images[0] || '');
 
   return (
     <div className="room-detail-page">
@@ -69,32 +65,25 @@ export default function RoomDetail() {
       </Link>
 
       <div className="room-detail-container">
-
-        {/* მარცხენა: ფოტოები */}
-        <div className="room-media-section">
+        <div className="media-section">
           <div className="main-image-container">
-            <img src={activeImage || images.mainImage} alt={title} className="main-display-img" />
+            <img src={selectedImg} alt={title} className="main-display-img" />
           </div>
-          <div className="gallery-thumbnails">
-            <img
-              src={images.mainImage}
-              alt="thumbnail main"
-              className={`thumb-img ${(activeImage === images.mainImage || !activeImage) ? 'selected' : ''}`}
-              onClick={() => setActiveImage(images.mainImage)}
-            />
-            {images.gallery.map((imgUrl, index) => (
-              <img
-                key={index}
-                src={imgUrl}
-                alt={`thumbnail ${index}`}
-                className={`thumb-img ${activeImage === imgUrl ? 'selected' : ''}`}
-                onClick={() => setActiveImage(imgUrl)}
-              />
-            ))}
-          </div>
+          {images.length > 1 && (
+            <div className="gallery-thumbnails">
+              {images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`${title} ${index + 1}`}
+                  className={`thumb-img ${selectedImg === img ? 'selected' : ''}`}
+                  onClick={() => setSelectedImg(img)}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* მარჯვენა: ტექსტი */}
         <div className="room-content-section">
           <h1 className="room-detail-title">{title}</h1>
           <div className="room-detail-price">
