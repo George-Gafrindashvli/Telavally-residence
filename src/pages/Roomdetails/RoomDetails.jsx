@@ -104,17 +104,6 @@ export default function RoomDetail() {
               ))}
             </ul>
           </div>
-
-          <div className="booking-card">
-            <h4>{t('roomDetails.bookingTitle')}</h4>
-            <p>{t('roomDetails.bookingSubtitle')}</p>
-            <button
-              className="book-now-btn"
-              onClick={() => alert('Booking system integration coming soon!')}
-            >
-              {t('roomDetails.bookBtn')}
-            </button>
-          </div>
         </div>
       </div>
     </div>
