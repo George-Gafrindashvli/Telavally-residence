@@ -2,20 +2,53 @@ import { useState } from 'react';
 import useLanguage from '../../context/useLanguage';
 import './Gallery.css';
 
+// Building images
+import building1 from '../../assets/gallaryPhotos/buildingimg1.png';
+import building2 from '../../assets/gallaryPhotos/buildingimg2.png';
+import building3 from '../../assets/gallaryPhotos/buildingimg3.png';
+import building4 from '../../assets/gallaryPhotos/buildingimg4.png';
+// Pool images
+import pool2 from '../../assets/gallaryPhotos/poolimg2.png';
+import poolmg1 from '../../assets/gallaryPhotos/poolmg1.png';
+import poolandbuilding from '../../assets/gallaryPhotos/poolandbuildingimg.png';
+// Jacuzzi
+import jacuzzi1 from '../../assets/gallaryPhotos/jacuzziimg1.png';
+// Vineyards
+import vineyards1 from '../../assets/gallaryPhotos/vineyardsimg1.png';
+import vineyards2 from '../../assets/gallaryPhotos/vineyardsimg2.png';
+import vineyards3 from '../../assets/gallaryPhotos/vineyardsimg3.png';
+// Sports
+import sports1 from '../../assets/gallaryPhotos/sportsimg1.png';
+import sports2 from '../../assets/gallaryPhotos/sportsimg2.png';
+// Restaurant
+import restaurantImg from '../../assets/gallaryPhotos/restaurant.png';
+// Terrace
+import terrace1 from '../../assets/gallaryPhotos/terrace1.png';
+// Sauna
+import sauna1 from '../../assets/gallaryPhotos/Saunaimg1.png';
+
 export default function Gallery() {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedImg, setSelectedImg] = useState(null);
 
   const galleryData = [
-    { id: 1, category: 'building', titleKey: 'gallery.items.mainBuilding',     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop' },
-    { id: 2, category: 'pool',     titleKey: 'gallery.items.infinityPool',     image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=600&auto=format&fit=crop' },
-    { id: 3, category: 'jacuzzi',  titleKey: 'gallery.items.spaJacuzzi',       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=600&auto=format&fit=crop' },
-    { id: 4, category: 'vineyards',titleKey: 'gallery.items.ourVineyards',     image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=600&auto=format&fit=crop' },
-    { id: 5, category: 'sports',   titleKey: 'gallery.items.sportsCourts',     image: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop' },
-    { id: 6, category: 'restaurant',titleKey:'gallery.items.traditionalRestaurant', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop' },
-    { id: 9, category: 'terrace',  titleKey: 'gallery.items.sunsetTerrace',    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop' },
-{ id: 10, category: 'sauna', titleKey: 'gallery.items.sauna', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2c154?q=80&w=600&auto=format&fit=crop' },
+    { id: 1, category: 'building', titleKey: 'gallery.items.mainBuilding',     image: building1 },
+    { id: 2, category: 'building', titleKey: 'gallery.items.mainBuilding',     image: building2 },
+    { id: 3, category: 'building', titleKey: 'gallery.items.mainBuilding',     image: building3 },
+    { id: 4, category: 'building', titleKey: 'gallery.items.mainBuilding',     image: building4 },
+    { id: 5, category: 'pool',     titleKey: 'gallery.items.infinityPool',     image: pool2 },
+    { id: 6, category: 'pool',     titleKey: 'gallery.items.infinityPool',     image: poolmg1 },
+    { id: 7, category: 'pool',     titleKey: 'gallery.items.infinityPool',     image: poolandbuilding },
+    { id: 8, category: 'jacuzzi',  titleKey: 'gallery.items.spaJacuzzi',       image: jacuzzi1 },
+    { id: 9, category: 'vineyards',titleKey: 'gallery.items.ourVineyards',     image: vineyards1 },
+    { id: 10, category: 'vineyards',titleKey: 'gallery.items.ourVineyards',    image: vineyards2 },
+    { id: 11, category: 'vineyards',titleKey: 'gallery.items.ourVineyards',    image: vineyards3 },
+    { id: 12, category: 'sports',  titleKey: 'gallery.items.sportsCourts',     image: sports1 },
+    { id: 13, category: 'sports',  titleKey: 'gallery.items.sportsCourts',     image: sports2 },
+    { id: 14, category: 'restaurant',titleKey:'gallery.items.traditionalRestaurant', image: restaurantImg },
+    { id: 15, category: 'terrace', titleKey: 'gallery.items.sunsetTerrace',    image: terrace1 },
+    { id: 16, category: 'sauna', titleKey: 'gallery.items.sauna', image: sauna1 },
   ];
 
   const categories = [
