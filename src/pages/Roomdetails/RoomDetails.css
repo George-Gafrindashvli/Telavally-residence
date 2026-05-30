@@ -1,224 +1,11 @@
 .room-detail-page {
   width: 90%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 40px auto 80px auto;
   font-family: 'Inter', sans-serif;
 }
 
-/* უკან დაბრუნების ღილაკი */
-.back-to-list-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #666;
-  text-decoration: none;
-  font-size: 0.9rem;
-  margin-bottom: 30px;
-  transition: color 0.2s ease;
-}
-
-.back-to-list-btn:hover {
-  color: #111;
-}
-
-/* მთავარი კონტეინერი (ორი სვეტი) */
-.room-detail-container {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-}
-
-.room-detail-container {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-}
-
-/* --- მედია სექცია (ფოტოები) --- */
-.media-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-image-container {
-  width: 100%;
-  height: 500px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-}
-
-.main-display-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-/* პატარა ფოტოები (Thubnails) */
-.gallery-thumbnails {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.thumb-img {
-  width: 100px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-  opacity: 0.6;
-}
-
-.thumb-img:hover,
-.thumb-img.selected {
-  opacity: 1;
-  border-color: #111111;
-  transform: translateY(-2px);
-}
-
-/* --- ინფო სექცია --- */
-.room-detail-title {
-  font-family: 'Cinzel', serif;
-  font-size: 2.2rem;
-  color: #111;
-  margin: 0 0 10px 0;
-}
-
-.room-detail-price {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 25px;
-}
-
-.room-detail-price span {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #666;
-}
-
-.room-detail-description {
-  color: #444;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  font-weight: 300;
-}
-
-.divider {
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  margin: 30px 0;
-}
-
-/* სერვისები / Amenities */
-.amenities-section h3 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-
-.amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
-}
-
-.amenities-grid li {
-  font-size: 0.95rem;
-  color: #555;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.check-icon {
-  color: #b38b59; /* ოქროსფერი აქცენტი ჩექმარკისთვის */
-  font-weight: bold;
-}
-
-/* დაჯავშნის ბარათი */
-.booking-card {
-  background: #f9f9fb;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 30px;
-  border-radius: 20px;
-}
-
-.booking-card h4 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
-  margin: 0 0 8px 0;
-}
-
-.booking-card p {
-  color: #666;
-  font-size: 0.9rem;
-  margin: 0 0 20px 0;
-}
-
-.book-now-btn {
-  width: 100%;
-  background: #111111;
-  color: #fff;
-  border: none;
-  padding: 16px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 12px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.book-now-btn:hover {
-  background: #222;
-  transform: translateY(-2px);
-}
-
-/* 404 გვერდი */
-.room-not-found {
-  text-align: center;
-  padding: 100px 20px;
-}
-.room-not-found h2 {
-  font-family: 'Cinzel', serif;
-  margin-bottom: 20px;
-}
-.back-link {
-  color: #111;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* მედია რესპონსივი */
-@media (max-width: 992px) {
-  .room-detail-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .main-image-container {
-    height: 400px;
-  }
-}
-
-@media (max-width: 576px) {
-  .main-image-container {
-    height: 280px;
-  }
-  .amenities-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* უკან დაბრუნების ღილაკი */
+/* 🔙 უკან დაბრუნების ღილაკი */
 .back-to-list-btn {
   display: inline-flex;
   align-items: center;
@@ -233,18 +20,227 @@
   transition: color 0.3s ease;
 }
 
-/* ღილაკის შიგნით ისარი (←) */
 .back-to-list-btn span {
   font-size: 1.1rem;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* მაუსის მიტანის ეფექტები */
 .back-to-list-btn:hover {
-  color: #111111; /* ტექსტი მუქდება */
+  color: #111111; 
 }
 
-/* ჰოვერზე ისარი გაიწევა მარცხნივ 5 პიქსელით */
 .back-to-list-btn:hover span {
   transform: translateX(-5px);
+}
+
+/* 📦 მთავარი კონტეინერი (დესკტოპზე 2 სვეტი) */
+.room-detail-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* 📸 მედია სექცია */
+.media-section {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 110px; /* თუ ჰედერი სტიკია, ეს ფოტოც ჩაყვება სკროლს დესკტოპზე */
+}
+
+.main-image-container {
+  width: 100%;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+  background-color: #f5f5f7;
+}
+
+.main-display-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* 🖼️ პატარა ფოტოები (Thumbnails) */
+.gallery-thumbnails {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap; /* ტელეფონებზე რომ ჩამოვიდეს დაბლა და არ გაიჭიმოს */
+}
+
+.thumb-img {
+  width: 85px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.5;
+}
+
+.thumb-img:hover,
+.thumb-img.selected {
+  opacity: 1;
+  border-color: #111111;
+  transform: translateY(-2px);
+}
+
+/* 📝 ინფო სექცია */
+.room-content-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.room-detail-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.room-detail-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 24px;
+}
+
+.room-detail-price span {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+.room-detail-description {
+  color: #444444;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
+  margin: 0;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 30px 0;
+}
+
+/* ✨ სერვისები (Amenities) */
+.amenities-section h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  letter-spacing: 1px;
+  color: #111;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.amenities-grid li {
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-icon {
+  color: #b38b59; /* თბილი ოქროსფერი აქცენტი */
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* ❌ 404 გვერდი */
+.room-not-found {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.room-not-found h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.back-link {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+
+/* 🛠️ რეაგირებადი დიზაინი (Responsive Breakpoints) */
+
+@media (max-width: 992px) {
+  .room-detail-container {
+    grid-template-columns: 1fr; /* ერთ სვეტად გადაქცევა მობილურსა და პლანშეტზე */
+    gap: 35px;
+  }
+  
+  .media-section {
+    position: relative; /* მოეხსნას sticky ეფექტი ტელეფონზე */
+    top: 0;
+  }
+
+  .main-image-container {
+    height: 420px;
+  }
+  
+  .room-detail-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .room-detail-page {
+    width: 88%; /* მობილურზე გვერდებზე მეტი სივრცე დატოვოს */
+    margin: 20px auto 60px auto;
+  }
+
+  .main-image-container {
+    height: 280px; /* ტელეფონისთვის იდეალური პროპორციაა */
+    border-radius: 16px;
+  }
+
+  .gallery-thumbnails {
+    gap: 8px;
+  }
+
+  .thumb-img {
+    width: calc(25% - 6px); /* ეკრანზე 4 ფოტო ჩაეტიოს იდეალურად და დანარჩენი ჩამოვიდეს დაბლა */
+    height: 55px;
+    border-radius: 8px;
+  }
+
+  .room-detail-title {
+    font-size: 1.5rem;
+  }
+
+  .room-detail-price {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: 1fr; /* ტელეფონზე სერვისები სათითაოდ დალაგდეს */
+    gap: 12px;
+  }
 }

@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useLanguage from '../../context/useLanguage';
 import './RoomDetails.css';
 import first1 from "../../assets/houses/firstHouse/first.jpeg"
@@ -22,14 +22,12 @@ import third5 from "../../assets/houses/third/fifght.jpeg"
 import third6 from "../../assets/houses/third/sisth.jpeg"
 import third7 from "../../assets/houses/third/seventh.jpeg"
 
-// ფასები ცალკე (ენა-დამოუკიდებელი)
 const roomPrices = {
   'standard-double':  '₾250',
   'deluxe-king-suite': '₾250',
   'family-apartment':  '₾250'
 };
 
-// ოთახების ფოტოები
 const roomImages = {
   'standard-double': [first1, first2, first3, first4, first5],
   'deluxe-king-suite': [second1, second2, second3, second4, second5, second6, second7],
@@ -41,6 +39,15 @@ export default function RoomDetail() {
   const { t } = useLanguage();
 
   const roomData = t(`roomDetails.rooms.${id}`);
+  const images = roomImages[id] || [];
+  const [selectedImg, setSelectedImg] = useState('');
+
+  // როცა ოთახი იცვლება, პირველი ფოტო დაყენდეს ავტომატურად
+  useEffect(() => {
+    if (images.length > 0) {
+      setSelectedImg(images[0]);
+    }
+  }, [id, images]);
 
   if (typeof roomData !== 'object') {
     return (
@@ -55,8 +62,6 @@ export default function RoomDetail() {
   const description = t(`roomDetails.rooms.${id}.description`);
   const amenities   = t(`roomDetails.rooms.${id}.amenities`);
   const price       = roomPrices[id];
-  const images      = roomImages[id] || [];
-  const [selectedImg, setSelectedImg] = useState(images[0] || '');
 
   return (
     <div className="room-detail-page">
@@ -87,7 +92,7 @@ export default function RoomDetail() {
         <div className="room-content-section">
           <h1 className="room-detail-title">{title}</h1>
           <div className="room-detail-price">
-            {price}<span> {t('roomDetails.perNight')}</span>
+            {price}<span> / {t('roomDetails.perNight')}</span>
           </div>
 
           <p className="room-detail-description">{description}</p>
