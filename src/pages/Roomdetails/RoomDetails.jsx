@@ -24,9 +24,9 @@ import third7 from "../../assets/houses/third/seventh.jpeg"
 
 // ფასები ცალკე (ენა-დამოუკიდებელი)
 const roomPrices = {
-  'standard-double':  '$120',
-  'deluxe-king-suite': '$220',
-  'family-apartment':  '$350'
+  'standard-double':  '₾250',
+  'deluxe-king-suite': '₾250',
+  'family-apartment':  '₾250'
 };
 
 // ოთახების ფოტოები

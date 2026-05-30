@@ -10,23 +10,23 @@ const roomsData = [
   {
     id: 'standard-double',
     titleKey: 'rooms.standardDouble.title',
-    price: '$120',
+    price: '₾250',
     image: firstphoto,
     featureKeys: ['rooms.features.guests2', 'rooms.features.oneBed', 'rooms.features.wifi', 'rooms.features.balcony']
   },
   {
     id: 'deluxe-king-suite',
-    titleKey: 'rooms.deluxeKing.title',
-    price: '$220',
+    titleKey: 'rooms.standardDouble.title',
+    price: '₾250',
     image: secondphoto,
-    featureKeys: ['rooms.features.guests3', 'rooms.features.kingBed', 'rooms.features.mountainView', 'rooms.features.miniBar']
+    featureKeys: ['rooms.features.guests2', 'rooms.features.oneBed', 'rooms.features.wifi', 'rooms.features.balcony']
   },
   {
     id: 'family-apartment',
-    titleKey: 'rooms.familyApartment.title',
-    price: '$350',
+    titleKey: 'rooms.standardDouble.title',
+    price: '₾250',
     image: thirdphoto,
-    featureKeys: ['rooms.features.guests5', 'rooms.features.twoBedrooms', 'rooms.features.kitchen', 'rooms.features.terrace']
+    featureKeys: ['rooms.features.guests2', 'rooms.features.oneBed', 'rooms.features.wifi', 'rooms.features.balcony']
   }
 ];
 

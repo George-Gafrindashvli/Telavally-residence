@@ -44,7 +44,7 @@ const translations = {
     rooms: {
       pageTitle: 'Our Accommodation',
       pageSubtitle: 'Discover a space designed for your ultimate comfort and relaxation',
-      perNight: '/ night',
+      perNight: '/ Day',
       features: {
         guests2: '2 Guests',
         guests3: '3 Guests',
@@ -71,7 +71,7 @@ const translations = {
     },
     roomDetails: {
       backBtn: 'Back to Accommodation',
-      perNight: '/ night',
+      perNight: '/ დღე',
       amenitiesTitle: 'Room Amenities',
       bookingTitle: 'Ready to Book Your Stay?',
       bookingSubtitle: 'Experience luxury and hospitality at Telavally Residence.',
@@ -85,13 +85,13 @@ const translations = {
         },
         'deluxe-king-suite': {
           title: 'Deluxe King Suite',
-          description: 'Experience pure luxury in our Deluxe King Suite. Offering breathtaking mountain views, a spacious living area, and an extra-large King bed, this suite is designed for those looking for an elevated boutique hotel experience.',
-          amenities: ['Mountain View', 'King Size Bed', 'Espresso Machine', 'Smart TV with Netflix', 'Premium Toiletries', 'In-room Safe']
+          description: 'Our Standard Double Room offers a perfect blend of comfort and functionality. Ideal for couples or solo travelers, it features a plush double bed, a private balcony with city views, and all modern amenities required for a relaxing stay.',
+          amenities: ['Free High-Speed Wi-Fi', 'Air Conditioning', 'Flat-screen TV', 'Private Balcony', 'Minibar', 'Hairdryer']
         },
         'family-apartment': {
           title: 'Family Residence Apartment',
-          description: 'Perfect for families or groups, this grand residence features two separate bedrooms, a fully equipped modern kitchen, and a private expansive terrace. Enjoy the feeling of a luxury home combined with top-tier hotel service.',
-          amenities: ['2 Bedrooms', 'Fully Equipped Kitchen', 'Large Private Terrace', 'Washing Machine', 'Dining Area', 'Welcome Wine']
+          description: 'Our Standard Double Room offers a perfect blend of comfort and functionality. Ideal for couples or solo travelers, it features a plush double bed, a private balcony with city views, and all modern amenities required for a relaxing stay.',
+          amenities: ['Free High-Speed Wi-Fi', 'Air Conditioning', 'Flat-screen TV', 'Private Balcony', 'Minibar', 'Hairdryer']
         }
       }
     },
@@ -146,7 +146,7 @@ const translations = {
     rooms: {
       pageTitle: 'ჩვენი განთავსება',
       pageSubtitle: 'აღმოაჩინეთ სივრცე, რომელიც შექმნილია თქვენი კომფორტისთვის',
-      perNight: '/ ღამეში',
+      perNight: '/ დღეში',
       features: {
         guests2: '2 სტუმარი',
         guests3: '3 სტუმარი',
@@ -173,9 +173,9 @@ const translations = {
     },
     roomDetails: {
       backBtn: 'უკან განთავსებაზე',
-      perNight: '/ ღამეში',
+      perNight: '/ დღე',
       amenitiesTitle: 'ოთახის კომფორტები',
-      bookingTitle: 'მზადა ხართ დასაჯავშნად?',
+      bookingTitle: 'მზადა ხართ დაჯავშნად?',
       bookingSubtitle: 'განიცადეთ სიმდიდრე და სტუმართმოყვარეობა თელავი რეზიდენსში.',
       bookBtn: 'დაჯავშნე ეს ოთახი',
       notFound: 'ოთახი ვერ მოიძებნა',
@@ -186,14 +186,14 @@ const translations = {
           amenities: ['უფასო Hi-Speed Wi-Fi', 'კონდიციონერი', 'ბრტყელეკრანიანი TV', 'პირადი აივანი', 'მინიბარი', 'თმის საშრობი']
         },
         'deluxe-king-suite': {
-          title: 'დელუქს კინგ სუიტი',
-          description: 'განიცადეთ სუფთა სიმდიდრე ჩვენს დელუქს კინგ სუიტში. სთავაზობს შთამბეჭდავ მთის ხედებს, ფართო სასტუმრო ოთახს და ზემდიდრულ კინგ საწოლს.',
-          amenities: ['მთის ხედი', 'კინგ ზომის საწოლი', 'ესპრესო მანქანა', 'Smart TV Netflix-ით', 'პრემიუმ სასაბანე', 'ოთახის სეიფი']
+          title: 'სტანდარტული ორადგილიანი ოთახი',
+          description: 'ჩვენი სტანდარტული ორადგილიანი ოთახი გთავაზობთ კომფორტისა და ფუნქციონალურობის სრულყოფილ შერწყმას. იდეალურია წყვილებისთვის ან მარტოხელა მოგზაურებისთვის.',
+          amenities: ['უფასო Hi-Speed Wi-Fi', 'კონდიციონერი', 'ბრტყელეკრანიანი TV', 'პირადი აივანი', 'მინიბარი', 'თმის საშრობი']
         },
         'family-apartment': {
-          title: 'საოჯახო რეზიდენს აპარტამენტი',
-          description: 'იდეალურია ოჯახებისა და ჯგუფებისთვის. გამოირჩევა ორი ცალკე საძინებლით, სრულად აღჭურვილი სამზარეულოთი და კერძო ფართო ტერასით.',
-          amenities: ['2 საძინებელი', 'სრულად აღჭურვილი სამზარეულო', 'დიდი კერძო ტერასა', 'სარეცხი მანქანა', 'სასადილო ადგილი', 'მისასალმებელი ღვინო']
+          title: 'სტანდარტული ორადგილიანი ოთახი',
+          description: 'ჩვენი სტანდარტული ორადგილიანი ოთახი გთავაზობთ კომფორტისა და ფუნქციონალურობის სრულყოფილ შერწყმას. იდეალურია წყვილებისთვის ან მარტოხელა მოგზაურებისთვის.',
+          amenities: ['უფასო Hi-Speed Wi-Fi', 'კონდიციონერი', 'ბრტყელეკრანიანი TV', 'პირადი აივანი', 'მინიბარი', 'თმის საშრობი']
         }
       }
     },
