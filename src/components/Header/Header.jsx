@@ -39,7 +39,7 @@ export default function Header() {
         </ul>
 
         <div className='header-right'>
-          <div className='lang-buttons'>
+          <div className='lang-buttons desktop-lang'>
             <button
               className={`lang-btn ${language === 'ka' ? 'active' : ''}`}
               onClick={() => setLanguage('ka')}
@@ -55,9 +55,9 @@ export default function Header() {
             onClick={() => setMenuOpen(prev => !prev)}
             aria-label="მენიუ"
           >
-            <span className={`bar ${menuOpen ? 'open' : ''}`} />
-            <span className={`bar ${menuOpen ? 'open' : ''}`} />
-            <span className={`bar ${menuOpen ? 'open' : ''}`} />
+            <span className={`bar b1 ${menuOpen ? 'open' : ''}`} />
+            <span className={`bar b2 ${menuOpen ? 'open' : ''}`} />
+            <span className={`bar b3 ${menuOpen ? 'open' : ''}`} />
           </button>
         </div>
       </div>

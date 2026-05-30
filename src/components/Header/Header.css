@@ -30,27 +30,23 @@
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  opacity: 0.85;
-  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .logo-container h1 {
   font-family: 'Cinzel', serif;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #111111;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   margin: 0;
 }
 
-/* ---------------------------------------------------- */
-/* 🔥 განახლებული ნავიგაციის მენიუ და ანიმაციები 🔥 */
-/* ---------------------------------------------------- */
-
+/* დესკტოპ ნავიგაცია */
 .nav-links {
   display: flex;
   list-style: none;
@@ -59,162 +55,59 @@
   padding: 0;
 }
 
-.nav-links li {
-  display: flex;
-  align-items: center;
-}
-
-/* ახლა NavLink (<a>) იკავებს მთელ სივრცეს */
 .nav-item {
   font-size: 0.85rem;
   font-weight: 500;
   color: #666666;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  text-decoration: none; /* ვაშორებთ ხაზს, რომელიც ა-ტეგს მოყვება */
-  padding: 10px 20px;    /* ფედინგი გადმოვიდა აქ, რომ კლიკის ზონა გაიზარდოს */
+  text-decoration: none; 
+  padding: 10px 20px;    
   position: relative;
-  transition: color 0.4s ease;
+  transition: color 0.3s ease;
   cursor: pointer;
 }
 
-/* მაუსის მიტანისას და აქტიურზე ფერი გახდეს შავი */
 .nav-item:hover,
 .nav-item.active {
   color: #000000;
   font-weight: 600;
 }
 
-/* ქვედა ხაზის საბაზისო სტილი */
 .nav-item::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 20px;   /* ემთხვევა padding-ს */
-  right: 20px;  /* ემთხვევა padding-ს */
+  left: 20px;   
+  right: 20px;  
   height: 2px;
-  background-color: #111111; /* ბრენდული შავი ხაზი */
-  transform: scaleX(0);      /* საწყის ეტაპზე დამალულია */
+  background-color: #111111; 
+  transform: scaleX(0);      
   transform-origin: right;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* პლასტიკური ანიმაცია */
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-/* ჰოვერზე ხაზის გამოჩენა მარცხნიდან */
-.nav-item:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* !!! აქტიური გვერდის ეფექტი !!! */
-/* როცა გვერდი აქტიურია, ხაზი მყარად დგას და არ იკუმშება */
+.nav-item:hover::after,
 .nav-item.active::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-/* ---------------------------------------------------- */
-/* --- ენების დროპდაუნის სექცია --- */
-/* ---------------------------------------------------- */
-
-.lang-dropdown-container {
-  position: relative;
-}
-
-.lang-button {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #111111;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 10px 20px;
-  border-radius: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: 1px;
-  transition: all 0.2s ease;
-}
-
-.lang-button:hover {
-  background: rgba(0, 0, 0, 0.07);
-  transform: translateY(-1px);
-}
-
-.lang-button .arrow {
-  font-size: 0.7rem;
-  transition: transform 0.3s ease;
-  display: inline-block;
-}
-
-.lang-button .arrow.open {
-  transform: rotate(180deg);
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  padding: 8px;
-  list-style: none;
-  min-width: 130px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  margin: 0;
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.dropdown-menu li {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #555555;
-  padding: 10px 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.dropdown-menu li:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: #000000;
-}
-
-.dropdown-menu li.active-lang {
-  background: #111111;
-  color: #ffffff;
-  font-weight: 600;
-}
-
+/* ენის ღილაკები */
 .lang-buttons {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .lang-btn {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #111111;
   background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 8px 16px;
-  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 8px 14px;
+  border-radius: 10px;
   cursor: pointer;
   letter-spacing: 1px;
   transition: all 0.2s ease;
@@ -229,27 +122,28 @@
   color: #ffffff;
 }
 
-/* header-right — lang + hamburger ერთად */
 .header-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* ჰამბურგერი — desktop-ზე დამალული */
+/* 🍔 ჰამბურგერის სტილი (ანიმაციური) */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
   width: 40px;
   height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 0;
   border-radius: 12px;
   transition: background 0.2s ease;
+  z-index: 1001; /* ყოველთვის მენიუს ზემოდან */
 }
 
 .hamburger:hover {
@@ -258,55 +152,61 @@
 
 .bar {
   display: block;
-  width: 22px;
+  width: 20px;
   height: 2px;
   background: #111111;
   border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
 }
 
-/* ✕ ფორმა გახსნისას */
-.bar.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.bar.open:nth-child(2) { transform: scaleX(0); opacity: 0; }
-.bar.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* ✕ ფორმა გახსნისას კონკრეტული კლასებით */
+.bar.b1.open { transform: translateY(7px) rotate(45deg); }
+.bar.b2.open { opacity: 0; transform: scaleX(0); }
+.bar.b3.open { transform: translateY(-7px) rotate(-45deg); }
 
-/* ნახევრად გამჭვირვალე ფენა */
+
+/* 🌑 მობილური Overlay (უკანა მუქი ფონი) */
 .mobile-overlay {
-  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 998;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  pointer-events: none; /* როცა დახურულია, კლიკებს არ ბლოკავს */
+  transition: opacity 0.4s ease;
 }
 
 .mobile-overlay.visible {
   opacity: 1;
+  pointer-events: auto; /* როცა ღიაა, კლიკი ხურავს მენიუს */
 }
 
-/* მობილური სლაიდ-მენიუ */
+
+/* 📱 მობილური სლაიდ-მენიუ (Premium Glassmorphism) */
 .mobile-menu {
-  display: none;
   position: fixed;
   top: 0;
   right: 0;
-  width: 75%;
-  max-width: 300px;
+  width: 80%;
+  max-width: 320px;
   height: 100dvh;
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
   z-index: 999;
-  padding: 100px 32px 40px;
+  padding: 100px 24px 40px;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.05);
+  
+  /* საწყისი პოზიცია ეკრანს გარეთ */
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 8px;
+  justify-content: space-between; /* ენები ჩავიტანოთ ბოლოში */
 }
 
 .mobile-menu.open {
@@ -316,24 +216,24 @@
 .mobile-nav-links {
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .mobile-nav-item {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  color: #666666;
+  color: #555555;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-decoration: none;
-  padding: 14px 16px;
+  padding: 14px 20px;
   border-radius: 14px;
   display: block;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .mobile-nav-item:hover,
@@ -341,18 +241,42 @@
   color: #000000;
   background: rgba(0, 0, 0, 0.04);
   font-weight: 600;
+  padding-left: 25px; /* მცირე ეფექტი მარჯვნივ გაწევის */
 }
 
 .mobile-lang-buttons {
   display: flex;
-  gap: 8px;
-  padding: 0 4px;
+  gap: 10px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* მობილური breakpoint */
+.mobile-lang-buttons .lang-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+}
+
+
+/* 🛠️ მობილური Breakpoint (აქ ხდება ჯადოქრობა) */
 @media (max-width: 900px) {
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .mobile-overlay { display: block; }
-  .mobile-menu { display: flex; }
+  .nav-links, .desktop-lang { 
+    display: none; 
+  }
+  .hamburger { 
+    display: flex; 
+  }
+  .header {
+    padding: 12px 24px;
+    width: 92%;
+    top: 10px;
+  }
+  .logo-container h1 {
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+  }
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
 }
