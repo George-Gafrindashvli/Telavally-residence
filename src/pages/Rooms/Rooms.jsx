@@ -5,7 +5,6 @@ import firstphoto from "../../assets/houses/firstHouse/second.jpeg"
 import secondphoto from "../../assets/houses/secondHouse/fourth.jpeg"
 import thirdphoto from "../../assets/houses/third/second.jpeg"
 
-// ოთახების სტატიკური მონაცემები (ტიტული და ფიჩერები translations-ში გადავიდა)
 const roomsData = [
   {
     id: 'standard-double',
@@ -16,14 +15,14 @@ const roomsData = [
   },
   {
     id: 'deluxe-king-suite',
-    titleKey: 'rooms.standardDouble.title',
+    titleKey: 'rooms.deluxeKing.title', // შეიცვალა შესაბამისი ქიით
     price: '₾250',
     image: secondphoto,
     featureKeys: ['rooms.features.guests2', 'rooms.features.oneBed', 'rooms.features.wifi', 'rooms.features.balcony']
   },
   {
     id: 'family-apartment',
-    titleKey: 'rooms.standardDouble.title',
+    titleKey: 'rooms.familyApartment.title', // შეიცვალა შესაბამისი ქიით
     price: '₾250',
     image: thirdphoto,
     featureKeys: ['rooms.features.guests2', 'rooms.features.oneBed', 'rooms.features.wifi', 'rooms.features.balcony']

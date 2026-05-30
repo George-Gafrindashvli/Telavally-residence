@@ -1,6 +1,6 @@
 .rooms-page {
   width: 90%;
-  max-width: 1400px;
+  max-width: 1200px; /* 1400px-დან შევამცირეთ 1200-მდე უკეთესი პროპორციებისთვის */
   margin: 60px auto;
   font-family: 'Inter', sans-serif;
 }
@@ -24,36 +24,38 @@
   font-weight: 300;
 }
 
-/* ოთახების ბადე (Grid) */
+/* 🧱 ოთახების ბადე (ფიქსირებული minmax-ით) */
 .rooms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 40px;
+  /* მინიმალური სიგანე დავიყვანეთ 280px-მდე, რომ პლანშეტებზე გვერდზე არ გავიდეს */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-/* ოთახის ქარდი (ახლა უკვე ლინკი) */
+/* ოთახის ქარდი */
 .room-card {
-  display: block; /* აუცილებელია ლინკისთვის */
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  text-decoration: none; /* ვაშორებთ ბმულის ხაზგასმას */
-  color: inherit; /* ინარჩუნებს ტექსტის ორიგინალ ფერებს */
+  text-decoration: none; 
+  color: inherit; 
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   cursor: pointer;
 }
 
 .room-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
 }
 
 /* ფოტოს კონტეინერი */
 .room-image-wrapper {
   position: relative;
-  height: 280px;
+  height: 260px;
   overflow: hidden;
 }
 
@@ -64,47 +66,50 @@
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* როცა მთლიან ქარდს მივუტანთ მაუსს, ფოტო ადიდდეს */
 .room-card:hover .room-image {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 /* ფასის თეგი */
 .room-price-badge {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 15px;
+  left: 15px;
   background: rgba(17, 17, 17, 0.85);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #fff;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 10px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
 }
 
 .room-price-badge span {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 300;
   opacity: 0.8;
 }
 
 /* ინფორმაციის ბლოკი */
 .room-info {
-  padding: 30px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* უზრუნველყოფს, რომ ქარდები თანაბარი სიმაღლის იყოს */
 }
 
 .room-info h3 {
   font-family: 'Cinzel', serif;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: #111;
-  margin: 0 0 15px 0;
+  margin: 0 0 12px 0;
   font-weight: 600;
   transition: color 0.3s ease;
+  line-height: 1.4;
 }
 
-/* ჰოვერზე სათაური ნაზად გადავიდეს ოქროსფერში */
 .room-card:hover h3 {
   color: #b38b59;
 }
@@ -113,14 +118,14 @@
 .room-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: auto 0 0 0; /* ჩამოწევს სერვისებს ბოლოში, თუ ტექსტი სხვადასხვა ზომისაა */
 }
 
 .room-features li {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   background: #f5f5f7;
   color: #555;
   padding: 6px 12px;
@@ -128,12 +133,44 @@
   font-weight: 500;
 }
 
-/* მობილურის ადაპტაცია */
-@media (max-width: 500px) {
-  .rooms-grid {
-    grid-template-columns: 1fr;
+/* 🛠️ მობილურის ადაპტაცია (Responsive Breakpoints) */
+
+@media (max-width: 768px) {
+  .rooms-header h2 {
+    font-size: 2rem;
   }
+  .rooms-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rooms-page {
+    width: 88%; /* გვერდებზე მეტი სუნთქვის სივრცე მობილურისთვის */
+    margin: 40px auto;
+  }
+
+  .rooms-header {
+    margin-bottom: 30px;
+  }
+
+  .rooms-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .rooms-grid {
+    grid-template-columns: 1fr; /* აიძულებს ოთახებს დალაგდნენ მკაცრად ერთ სვეტად */
+  }
+
   .room-image-wrapper {
-    height: 220px;
+    height: 200px; /* მობილურისთვის იდეალური პროპორციული სიმაღლე */
+  }
+
+  .room-info {
+    padding: 20px;
+  }
+
+  .room-info h3 {
+    font-size: 1.15rem;
   }
 }
