@@ -14,7 +14,8 @@ export default function Gallery() {
     { id: 4, category: 'vineyards',titleKey: 'gallery.items.ourVineyards',     image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=600&auto=format&fit=crop' },
     { id: 5, category: 'sports',   titleKey: 'gallery.items.sportsCourts',     image: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop' },
     { id: 6, category: 'restaurant',titleKey:'gallery.items.traditionalRestaurant', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop' },
-    { id: 9, category: 'terrace',  titleKey: 'gallery.items.sunsetTerrace',    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop' }
+    { id: 9, category: 'terrace',  titleKey: 'gallery.items.sunsetTerrace',    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=600&auto=format&fit=crop' },
+{ id: 10, category: 'sauna', titleKey: 'gallery.items.sauna', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2c154?q=80&w=600&auto=format&fit=crop' },
   ];
 
   const categories = [
@@ -25,7 +26,8 @@ export default function Gallery() {
     { code: 'vineyards',  labelKey: 'gallery.categories.vineyards' },
     { code: 'sports',     labelKey: 'gallery.categories.sports' },
     { code: 'restaurant', labelKey: 'gallery.categories.restaurant' },
-    { code: 'terrace',    labelKey: 'gallery.categories.terrace' }
+    { code: 'terrace',    labelKey: 'gallery.categories.terrace' },
+    { code: 'sauna', labelKey: 'gallery.categories.sauna' }
   ];
 
   const filteredImages = activeFilter === 'all'

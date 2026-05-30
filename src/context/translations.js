@@ -26,6 +26,7 @@ const translations = {
         building: 'Building',
         pool: 'Pool',
         jacuzzi: 'Jacuzzi',
+        sauna: 'Sauna',
         vineyards: 'Vineyards',
         sports: 'Sports',
         restaurant: 'Restaurant',
@@ -35,6 +36,7 @@ const translations = {
         mainBuilding: 'Main Building',
         infinityPool: 'Infinity Pool',
         spaJacuzzi: 'Spa Jacuzzi',
+        sauna: 'Sauna',
         ourVineyards: 'Our Vineyards',
         sportsCourts: 'Sports Courts',
         traditionalRestaurant: 'Traditional Restaurant',
@@ -79,17 +81,17 @@ const translations = {
       notFound: 'Room Not Found',
       rooms: {
         'standard-double': {
-          title: 'Standard Double Room',
+          title: 'Standard Double Room Number',
           description: 'Our Standard Double Room offers a perfect blend of comfort and functionality. Ideal for couples or solo travelers, it features a plush double bed, a private balcony with city views, and all modern amenities required for a relaxing stay.',
           amenities: ['Free High-Speed Wi-Fi', 'Air Conditioning', 'Flat-screen TV', 'Private Balcony', 'Minibar', 'Hairdryer']
         },
         'deluxe-king-suite': {
-          title: 'Deluxe King Suite',
+          title: 'Standard Double Room Number',
           description: 'Our Standard Double Room offers a perfect blend of comfort and functionality. Ideal for couples or solo travelers, it features a plush double bed, a private balcony with city views, and all modern amenities required for a relaxing stay.',
           amenities: ['Free High-Speed Wi-Fi', 'Air Conditioning', 'Flat-screen TV', 'Private Balcony', 'Minibar', 'Hairdryer']
         },
         'family-apartment': {
-          title: 'Family Residence Apartment',
+          title: 'Standard Double Room Number',
           description: 'Our Standard Double Room offers a perfect blend of comfort and functionality. Ideal for couples or solo travelers, it features a plush double bed, a private balcony with city views, and all modern amenities required for a relaxing stay.',
           amenities: ['Free High-Speed Wi-Fi', 'Air Conditioning', 'Flat-screen TV', 'Private Balcony', 'Minibar', 'Hairdryer']
         }
@@ -122,12 +124,13 @@ const translations = {
     },
     gallery: {
       title: 'რეზორტის გალერეა',
-      subtitle: 'ვიზუალური მოგზაურობა თელავი რეზიდენსის სიმდიდრესა და ბუნებაში',
+      subtitle: 'ვიზუალური მოგზაურობა თელაველი რეზიდენსის სიმდიდრესა და ბუნებაში',
       categories: {
         all: 'ყველა',
         building: 'შენობა',
         pool: 'აუზი',
         jacuzzi: 'ჯაკუზი',
+        sauna: 'საუნა',
         vineyards: 'ვენახები',
         sports: 'სპორტი',
         restaurant: 'რესტორანი',
@@ -137,6 +140,7 @@ const translations = {
         mainBuilding: 'მთავარი შენობა',
         infinityPool: 'ინფინიტი აუზი',
         spaJacuzzi: 'სპა ჯაკუზი',
+        sauna: 'საუნა',
         ourVineyards: 'ჩვენი ვენახები',
         sportsCourts: 'სპორტული მოედნები',
         traditionalRestaurant: 'ტრადიციული რესტორანი',
@@ -181,17 +185,17 @@ const translations = {
       notFound: 'ოთახი ვერ მოიძებნა',
       rooms: {
         'standard-double': {
-          title: 'სტანდარტული ორადგილიანი ოთახი',
+          title: 'სტანდარტული ორადგილიანი სასტუმროს ნომერი',
           description: 'ჩვენი სტანდარტული ორადგილიანი ოთახი გთავაზობთ კომფორტისა და ფუნქციონალურობის სრულყოფილ შერწყმას. იდეალურია წყვილებისთვის ან მარტოხელა მოგზაურებისთვის.',
           amenities: ['უფასო Hi-Speed Wi-Fi', 'კონდიციონერი', 'ბრტყელეკრანიანი TV', 'პირადი აივანი', 'მინიბარი', 'თმის საშრობი']
         },
         'deluxe-king-suite': {
-          title: 'სტანდარტული ორადგილიანი ოთახი',
+          title: 'სტანდარტული ორადგილიანი ოთახი სასტუმროს ნომერი',
           description: 'ჩვენი სტანდარტული ორადგილიანი ოთახი გთავაზობთ კომფორტისა და ფუნქციონალურობის სრულყოფილ შერწყმას. იდეალურია წყვილებისთვის ან მარტოხელა მოგზაურებისთვის.',
           amenities: ['უფასო Hi-Speed Wi-Fi', 'კონდიციონერი', 'ბრტყელეკრანიანი TV', 'პირადი აივანი', 'მინიბარი', 'თმის საშრობი']
         },
         'family-apartment': {
-          title: 'სტანდარტული ორადგილიანი ოთახი',
+          title: 'სტანდარტული ორადგილიანი ოთახი სასტუმროს ნომერი',
           description: 'ჩვენი სტანდარტული ორადგილიანი ოთახი გთავაზობთ კომფორტისა და ფუნქციონალურობის სრულყოფილ შერწყმას. იდეალურია წყვილებისთვის ან მარტოხელა მოგზაურებისთვის.',
           amenities: ['უფასო Hi-Speed Wi-Fi', 'კონდიციონერი', 'ბრტყელეკრანიანი TV', 'პირადი აივანი', 'მინიბარი', 'თმის საშრობი']
         }
