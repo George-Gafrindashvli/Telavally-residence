@@ -257,6 +257,30 @@
   padding: 12px;
 }
 
+.header {
+  height: 80px; /* ფიქსირებული სიმაღლე აუცილებელია */
+  /* დანარჩენი შენი სტილები */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  /* გაზარდე ზომა სასურველზე */
+  width: 60px; 
+  height: 60px;
+  object-fit: contain;
+  
+  /* უარყოფითი მარჯინებით აკომპენსირებ ჰედერის სიმაღლეს */
+  margin-top: -10px;
+  margin-bottom: -10px;
+  
+  /* თუ გინდა რომ სხვა ელემენტებს ზემოდან გადააჯდეს */
+  position: relative;
+  z-index: 10; 
+}
 
 /* 🛠️ მობილური Breakpoint (აქ ხდება ჯადოქრობა) */
 @media (max-width: 900px) {
