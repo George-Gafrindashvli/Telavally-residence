@@ -156,7 +156,7 @@ export default function Home() {
           <div className="footer-map-header">
             <h4>{t("home.findUs") || "სად ვართ"}</h4>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=თელავი,+კახეთი,+საქართველო"
+            href="https://www.google.com/maps/dir/?api=1&destination=41.9182525,45.5208489"
               target="_blank"
               rel="noreferrer noopener"
               className="directions-btn"
@@ -170,7 +170,7 @@ export default function Home() {
           <div className="map-wrapper">
             <iframe
               title="თელაველი რესიდენსი - ლოკაცია"
-              src="https://maps.app.goo.gl/PmdxievDUzV8ztn8A"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11896!2d45.5208489!3d41.9182525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4045cd3cec1cd631%3A0x87a9ec47d0b6ceaf!2sTelaValley%20Residence!5e0!3m2!1ska!2sge!4v1700000000000"
               width="100%"
               height="100%"
               style={{ border: 0 }}
