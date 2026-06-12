@@ -16,7 +16,9 @@ const translations = {
       facebook: 'Facebook',
       address: 'Shalauri Village, Telavi, Georgia',
       phone: '+032 208 88 37',
-      email: 'info@telavally.ge'
+      email: 'info@telavally.ge',
+      findUs: 'Find Us',
+      getDirection: 'Get Direction'
     },
     gallery: {
       title: 'Resort Gallery',
@@ -120,7 +122,9 @@ const translations = {
       facebook: 'ფეისბუკი',
       address: 'სოფ. შალაური, თელავი, საქართველო',
       phone: '+032 208 88 37',
-      email: 'info@telavally.ge'
+      email: 'info@telavally.ge',
+      findUs: 'სად ვართ',
+      getDirection: 'მარშრუტი'
     },
     gallery: {
       title: 'რეზორტის გალერეა',

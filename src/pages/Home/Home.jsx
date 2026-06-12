@@ -154,7 +154,7 @@ export default function Home() {
         {/* ── MAP ── */}
         <div className="footer-map">
           <div className="footer-map-header">
-            <h4>{t("home.findUs") || "სად ვართ"}</h4>
+            <h4>{t("home.findUs")}</h4>
             <a
             href="https://www.google.com/maps/dir/?api=1&destination=41.9182525,45.5208489"
               target="_blank"
@@ -164,7 +164,7 @@ export default function Home() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <polygon points="3 11 22 2 13 21 11 13 3 11"/>
               </svg>
-              {t("home.getDirections") || "მარშრუტი"}
+              {t("home.getDirection")}
             </a>
           </div>
           <div className="map-wrapper">
