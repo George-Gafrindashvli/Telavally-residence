@@ -1,7 +1,114 @@
-/* შემოგვაქვს ბრენდული ფონტები */
+/* ════════════════════════════════════════
+   FONTS
+════════════════════════════════════════ */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* მცურავი შუშის ჰედერი */
+/* ════════════════════════════════════════
+   DESIGN TOKENS
+   Single source of truth — change one var, everything updates.
+════════════════════════════════════════ */
+:root {
+  --color-ink:         #111111;
+  --color-ink-mid:     #555555;
+  --color-ink-muted:   #666666;
+  --color-white:       #ffffff;
+
+  --color-glass-bg:    rgba(255, 255, 255, 0.72);
+  --color-glass-bg-scrolled: rgba(255, 255, 255, 0.90);
+  --color-glass-border: rgba(255, 255, 255, 0.55);
+
+  --color-surface-hover: rgba(0, 0, 0, 0.045);
+  --color-surface-dim:   rgba(0, 0, 0, 0.03);
+  --color-border-soft:   rgba(0, 0, 0, 0.07);
+
+  --radius-sm:  10px;
+  --radius-md:  12px;
+  --radius-lg:  14px;
+  --radius-xl:  26px;
+
+  --shadow-rest:
+    0 4px 6px  rgba(0, 0, 0, 0.02),
+    0 12px 40px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  --shadow-scrolled:
+    0 2px 0 rgba(0, 0, 0, 0.025),
+    0 16px 48px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  --easing-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --font-display: 'Cinzel', serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+/* ════════════════════════════════════════
+   KEYFRAMES
+════════════════════════════════════════ */
+@keyframes headerReveal {
+  from { opacity: 0; transform: translateY(-40px) scale(0.96); filter: blur(10px); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);    filter: blur(0);    }
+}
+
+@keyframes logoBreath {
+  0%, 100% { transform: scale(1);    }
+  50%      { transform: scale(1.04); }
+}
+
+@keyframes ringPulse {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  60%  { transform: scale(1.6); opacity: 0;   }
+  100% { transform: scale(1.6); opacity: 0;   }
+}
+
+@keyframes navFall {
+  from { opacity: 0; transform: translateY(-16px) rotateX(-30deg); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0)     rotateX(0);      filter: blur(0);   }
+}
+
+@keyframes bubbleIn {
+  0%   { transform: scale(0)    translateY(4px);  opacity: 0; }
+  70%  { transform: scale(1.15) translateY(-2px); opacity: 1; }
+  100% { transform: scale(1)    translateY(0);    opacity: 1; }
+}
+
+@keyframes bookPulse {
+  0%, 100% { transform: scale(1);    opacity: 0.4; }
+  50%      { transform: scale(1.35); opacity: 0;   }
+}
+
+@keyframes shineSwipe {
+  0%   { left: -60%; opacity: 0; }
+  20%  { opacity: 1; }
+  100% { left: 130%; opacity: 0; }
+}
+
+@keyframes glowBreath {
+  0%, 100% { opacity: 0.25; transform: scale(1);    }
+  50%      { opacity: 0.45; transform: scale(1.08); }
+}
+
+@keyframes mobileItemSlide {
+  from { opacity: 0; transform: translateX(40px) skewX(-4deg); }
+  to   { opacity: 1; transform: translateX(0)    skewX(0);     }
+}
+
+@keyframes rippleBurst {
+  0%   { transform: scale(0.2); opacity: 0.6; }
+  100% { transform: scale(3.5); opacity: 0;   }
+}
+
+@keyframes brandGlitch {
+  0%, 88%, 100% { transform: skewX(0);     opacity: 1;    }
+  90%           { transform: skewX(-6deg); opacity: 0.85; }
+  93%           { transform: skewX(4deg);  opacity: 0.90; }
+  96%           { transform: skewX(-2deg); opacity: 1;    }
+}
+
+/* ════════════════════════════════════════
+   HEADER BASE
+════════════════════════════════════════ */
 .header {
   display: flex;
   justify-content: space-between;
@@ -9,82 +116,180 @@
   margin: 20px auto;
   width: 90%;
   max-width: 1400px;
+  height: 80px;
   padding: 15px 40px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 24px;
+
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-rest);
+
   position: sticky;
   top: 20px;
   z-index: 1000;
-  font-family: 'Inter', sans-serif;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  font-family: var(--font-body);
+  overflow: visible;
+  will-change: transform;
+  transform-style: preserve-3d;
+
+  transition:
+    background    0.5s ease,
+    box-shadow    0.5s ease,
+    border-radius 0.5s ease,
+    padding       0.5s ease,
+    width         0.5s ease;
+
+  animation: headerReveal 0.8s var(--easing-spring) both;
 }
 
-/* ლოგო */
+.header.scrolled {
+  background:    var(--color-glass-bg-scrolled);
+  box-shadow:    var(--shadow-scrolled);
+  padding:       10px 32px;
+  width:         82%;
+  border-radius: 34px;
+}
+
+/* ambient glow */
+.header-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 40px;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(180, 160, 255, 0.12) 0%,
+    rgba(255, 200, 150, 0.07) 50%,
+    transparent 75%);
+  z-index: -1;
+  animation: glowBreath 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   LOGO
+════════════════════════════════════════ */
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  display: block;
+  animation: logoBreath 6s ease-in-out infinite;
+  transition: transform 0.5s var(--easing-bounce);
 }
 
-.logo-container h1 {
-  font-family: 'Cinzel', serif;
+.logo-container:hover .logo {
+  transform: scale(1.15) rotate(-8deg);
+  animation: none;
+}
+
+.logo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  animation: ringPulse 3s ease-out infinite;
+  z-index: 1;
+}
+
+.brand-name {
+  font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 600;
-  color: #111111;
+  color: var(--color-ink);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   margin: 0;
+  animation: brandGlitch 10s ease-in-out infinite;
+  transition: letter-spacing 0.45s var(--easing-spring);
 }
 
-/* დესკტოპ ნავიგაცია */
+.logo-container:hover .brand-name {
+  letter-spacing: 4px;
+}
+
+/* ════════════════════════════════════════
+   NAV — Desktop
+════════════════════════════════════════ */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 5px; 
+  gap: 4px;
   margin: 0;
   padding: 0;
 }
 
+.nav-links li {
+  animation: navFall 0.65s calc(0.08s + var(--i) * 0.09s) var(--easing-spring) both;
+}
+
 .nav-item {
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   font-weight: 500;
-  color: #666666;
+  color: var(--color-ink-muted);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  text-decoration: none; 
-  padding: 10px 20px;    
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
   position: relative;
-  transition: color 0.3s ease;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  transition:
+    color          0.3s ease,
+    letter-spacing 0.4s var(--easing-spring),
+    background     0.35s ease;
 }
 
-.nav-item:hover,
-.nav-item.active {
-  color: #000000;
-  font-weight: 600;
+/* liquid fill — bottom-up */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-surface-hover);
+  border-radius: var(--radius-md);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.38s var(--easing-spring);
 }
 
+.nav-item:hover::before,
+.nav-item.active::before { transform: scaleY(1); }
+
+/* underline */
 .nav-item::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 20px;   
-  right: 20px;  
-  height: 2px;
-  background-color: #111111; 
-  transform: scaleX(0);      
+  bottom: 7px;
+  left: 20px;
+  right: 20px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--color-ink) 30%, var(--color-ink) 70%, transparent);
+  border-radius: 2px;
+  transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: transform 0.42s var(--easing-spring);
 }
 
 .nav-item:hover::after,
@@ -93,42 +298,172 @@
   transform-origin: left;
 }
 
-/* ენის ღილაკები */
-.lang-buttons {
-  display: flex;
-  gap: 6px;
+.nav-text { position: relative; z-index: 1; }
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--color-ink);
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
+.nav-bubble {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-dim);
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-item:active .nav-bubble {
+  animation: bubbleIn 0.35s var(--easing-bounce) forwards;
+}
+
+/* ════════════════════════════════════════
+   LANGUAGE BUTTONS
+════════════════════════════════════════ */
+.lang-buttons { display: flex; gap: 6px; }
+
 .lang-btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   font-weight: 600;
-  color: #111111;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  padding: 8px 14px;
-  border-radius: 10px;
+  color: var(--color-ink);
+  background: var(--color-surface-dim);
+  border: 1px solid var(--color-border-soft);
+  padding: 7px 13px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   letter-spacing: 1px;
-  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform    0.3s var(--easing-bounce),
+    background   0.25s ease,
+    box-shadow   0.3s ease,
+    border-color 0.25s ease;
 }
 
 .lang-btn:hover {
-  background: rgba(0, 0, 0, 0.07);
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.13);
 }
+
+.lang-btn:active { transform: scale(0.92); }
 
 .lang-btn.active {
-  background: #111111;
-  color: #ffffff;
+  background: var(--color-ink);
+  color: var(--color-white);
+  border-color: var(--color-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.20);
 }
 
+/* ripple */
+.lang-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.lang-btn:active::after {
+  animation: rippleBurst 0.45s ease-out forwards;
+}
+
+.lang-flag {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.10);
+  transition: transform 0.4s var(--easing-bounce);
+}
+
+.lang-btn:hover .lang-flag {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* ════════════════════════════════════════
+   BOOK CTA
+════════════════════════════════════════ */
+.book-btn {
+  position: relative;
+  display: none; /* shown at ≥ 900px */
+  align-items: center;
+  padding: 10px 22px;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  white-space: nowrap;
+  transition:
+    transform  0.3s var(--easing-bounce),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+@media (min-width: 900px) { .book-btn { display: flex; } }
+
+.book-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25), 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.book-btn:active { transform: scale(0.95); }
+
+.book-text { position: relative; z-index: 2; }
+
+.book-shine {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(105deg,
+    transparent 20%,
+    rgba(255,255,255,0.18) 50%,
+    transparent 80%);
+  z-index: 3;
+  pointer-events: none;
+  animation: shineSwipe 3.5s ease-in-out 1.5s infinite;
+}
+
+.book-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  animation: bookPulse 2.2s ease-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   RIGHT SIDE & HAMBURGER
+════════════════════════════════════════ */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* 🍔 ჰამბურგერის სტილი (ანიმაციური) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -141,50 +476,53 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  border-radius: 12px;
-  transition: background 0.2s ease;
-  z-index: 1001; /* ყოველთვის მენიუს ზემოდან */
+  border-radius: var(--radius-md);
+  z-index: 1001;
+  transition: background 0.2s ease, transform 0.3s var(--easing-bounce);
 }
 
-.hamburger:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
+.hamburger:hover { background: rgba(0,0,0,0.05); transform: scale(1.1); }
+.hamburger:active { transform: scale(0.9); }
 
 .bar {
   display: block;
   width: 20px;
   height: 2px;
-  background: #111111;
+  background: var(--color-ink);
   border-radius: 2px;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transition:
+    transform 0.42s var(--easing-spring),
+    opacity   0.25s ease,
+    width     0.3s ease;
 }
 
-/* ✕ ფორმა გახსნისას კონკრეტული კლასებით */
 .bar.b1.open { transform: translateY(7px) rotate(45deg); }
-.bar.b2.open { opacity: 0; transform: scaleX(0); }
+.bar.b2.open { opacity: 0; width: 0; }
 .bar.b3.open { transform: translateY(-7px) rotate(-45deg); }
 
-
-/* 🌑 მობილური Overlay (უკანა მუქი ფონი) */
+/* ════════════════════════════════════════
+   MOBILE OVERLAY
+════════════════════════════════════════ */
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   z-index: 998;
   opacity: 0;
-  pointer-events: none; /* როცა დახურულია, კლიკებს არ ბლოკავს */
+  pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
 .mobile-overlay.visible {
   opacity: 1;
-  pointer-events: auto; /* როცა ღიაა, კლიკი ხურავს მენიუს */
+  pointer-events: auto;
 }
 
-
-/* 📱 მობილური სლაიდ-მენიუ (Premium Glassmorphism) */
+/* ════════════════════════════════════════
+   MOBILE MENU
+════════════════════════════════════════ */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -192,26 +530,22 @@
   width: 80%;
   max-width: 320px;
   height: 100dvh;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px) saturate(160%);
+  -webkit-backdrop-filter: blur(32px) saturate(160%);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
   z-index: 999;
   padding: 100px 24px 40px;
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.05);
-  
-  /* საწყისი პოზიცია ეკრანს გარეთ */
+  box-shadow: -24px 0 72px rgba(0, 0, 0, 0.09);
   transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  
+  transition: transform 0.5s var(--easing-spring);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* ენები ჩავიტანოთ ბოლოში */
+  justify-content: flex-start;
+  gap: 24px;
 }
 
-.mobile-menu.open {
-  transform: translateX(0);
-}
+.mobile-menu.open { transform: translateX(0); }
 
 .mobile-nav-links {
   list-style: none;
@@ -219,88 +553,135 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
+}
+
+/* staggered entrance */
+.mobile-menu.open .mobile-nav-links li {
+  animation: mobileItemSlide 0.5s calc(0.12s + var(--i) * 0.07s) var(--easing-spring) both;
 }
 
 .mobile-nav-item {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
   font-weight: 500;
-  color: #555555;
+  color: var(--color-ink-mid);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-decoration: none;
   padding: 14px 20px;
-  border-radius: 14px;
-  display: block;
-  transition: all 0.25s ease;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    color        0.3s ease,
+    padding-left 0.35s var(--easing-spring),
+    background   0.3s ease;
+}
+
+.mobile-nav-number {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.20);
+  letter-spacing: 1px;
+  min-width: 20px;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 55%;
+  background: var(--color-ink);
+  border-radius: 2px;
+  transition: transform 0.35s var(--easing-spring);
 }
 
 .mobile-nav-item:hover,
 .mobile-nav-item.active {
-  color: #000000;
+  color: var(--color-ink);
   background: rgba(0, 0, 0, 0.04);
+  padding-left: 28px;
   font-weight: 600;
-  padding-left: 25px; /* მცირე ეფექტი მარჯვნივ გაწევის */
 }
 
+.mobile-nav-item:hover .mobile-nav-number,
+.mobile-nav-item.active .mobile-nav-number { color: rgba(0, 0, 0, 0.50); }
+
+.mobile-nav-item:hover::before,
+.mobile-nav-item.active::before { transform: translateY(-50%) scaleY(1); }
+
+/* Mobile Book CTA */
+.mobile-book-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: var(--color-ink);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s var(--easing-bounce), box-shadow 0.3s ease;
+}
+
+.mobile-book-btn:active { transform: scale(0.96); }
+
+.mobile-book-btn .book-pulse {
+  border-color: rgba(255, 255, 255, 0.20);
+  border-radius: var(--radius-lg);
+}
+
+/* Mobile Language Buttons */
 .mobile-lang-buttons {
   display: flex;
   gap: 10px;
-  padding: 20px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: auto;
 }
 
 .mobile-lang-buttons .lang-btn {
   flex: 1;
-  text-align: center;
+  justify-content: center;
   padding: 12px;
 }
 
-.header {
-  height: 80px; /* ფიქსირებული სიმაღლე აუცილებელია */
-  /* დანარჩენი შენი სტილები */
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  /* გაზარდე ზომა სასურველზე */
-  width: 60px; 
-  height: 60px;
-  object-fit: contain;
-  
-  /* უარყოფითი მარჯინებით აკომპენსირებ ჰედერის სიმაღლეს */
-  margin-top: -10px;
-  margin-bottom: -10px;
-  
-  /* თუ გინდა რომ სხვა ელემენტებს ზემოდან გადააჯდეს */
-  position: relative;
-  z-index: 10; 
-}
-
-/* 🛠️ მობილური Breakpoint (აქ ხდება ჯადოქრობა) */
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .nav-links, .desktop-lang { 
-    display: none; 
-  }
-  .hamburger { 
-    display: flex; 
-  }
+  .nav-links,
+  .desktop-lang  { display: none; }
+  .hamburger     { display: flex; }
+
   .header {
     padding: 12px 24px;
     width: 92%;
     top: 10px;
   }
+
   .logo-container h1 {
     font-size: 0.95rem;
     letter-spacing: 1.5px;
   }
+
+  .logo-wrapper,
   .logo {
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
   }
 }
