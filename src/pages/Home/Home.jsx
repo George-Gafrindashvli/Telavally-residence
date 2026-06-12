@@ -170,7 +170,7 @@ export default function Home() {
           <div className="map-wrapper">
             <iframe
               title="თელაველი რესიდენსი - ლოკაცია"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11896.123456789!2d45.4746!3d41.9173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404456a0a0a0a0a1%3A0x0!2sTelavi%2C+Georgia!5e0!3m2!1ska!2sge!4v1700000000000!5m2!1ska!2sge"
+              src="https://maps.app.goo.gl/PmdxievDUzV8ztn8A"
               width="100%"
               height="100%"
               style={{ border: 0 }}
