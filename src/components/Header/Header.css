@@ -394,66 +394,6 @@
   transform: scale(1.2) rotate(15deg);
 }
 
-/* ════════════════════════════════════════
-   BOOK CTA
-════════════════════════════════════════ */
-.book-btn {
-  position: relative;
-  display: none; /* shown at ≥ 900px */
-  align-items: center;
-  padding: 10px 22px;
-  background: var(--color-ink);
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  white-space: nowrap;
-  transition:
-    transform  0.3s var(--easing-bounce),
-    box-shadow 0.3s ease,
-    background 0.3s ease;
-}
-
-@media (min-width: 900px) { .book-btn { display: flex; } }
-
-.book-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.25), 0 3px 8px rgba(0,0,0,0.12);
-}
-
-.book-btn:active { transform: scale(0.95); }
-
-.book-text { position: relative; z-index: 2; }
-
-.book-shine {
-  position: absolute;
-  top: 0;
-  left: -60%;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(105deg,
-    transparent 20%,
-    rgba(255,255,255,0.18) 50%,
-    transparent 80%);
-  z-index: 3;
-  pointer-events: none;
-  animation: shineSwipe 3.5s ease-in-out 1.5s infinite;
-}
-
-.book-pulse {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-md);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
-  animation: bookPulse 2.2s ease-out infinite;
-  z-index: 1;
-  pointer-events: none;
-}
 
 /* ════════════════════════════════════════
    RIGHT SIDE & HAMBURGER
@@ -617,33 +557,6 @@
 
 .mobile-nav-item:hover::before,
 .mobile-nav-item.active::before { transform: translateY(-50%) scaleY(1); }
-
-/* Mobile Book CTA */
-.mobile-book-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  background: var(--color-ink);
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: transform 0.3s var(--easing-bounce), box-shadow 0.3s ease;
-}
-
-.mobile-book-btn:active { transform: scale(0.96); }
-
-.mobile-book-btn .book-pulse {
-  border-color: rgba(255, 255, 255, 0.20);
-  border-radius: var(--radius-lg);
-}
 
 /* Mobile Language Buttons */
 .mobile-lang-buttons {

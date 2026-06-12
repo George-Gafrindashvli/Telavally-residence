@@ -199,12 +199,6 @@ export default function Header() {
             <LangButtons language={language} onSelect={setLanguage} />
           </div>
 
-          <NavLink to="/rooms" className="book-btn" onClick={closeMenu}>
-            <span className="book-text">{t('navbar.book') || 'Book'}</span>
-            <span className="book-shine" aria-hidden="true" />
-            <span className="book-pulse" aria-hidden="true" />
-          </NavLink>
-
           <button
             className="hamburger"
             onClick={() => setMenuOpen(p => !p)}
@@ -231,11 +225,6 @@ export default function Header() {
             <NavItem key={item.path} {...item} index={i} mobile onClick={closeMenu} />
           ))}
         </ul>
-
-        <NavLink to="/rooms" className="mobile-book-btn" onClick={closeMenu}>
-          {t('navbar.book') || 'Book Now'}
-          <span className="book-pulse" aria-hidden="true" />
-        </NavLink>
 
         <div className="mobile-lang-buttons">
           <LangButtons
