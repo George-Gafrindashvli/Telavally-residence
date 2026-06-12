@@ -14,7 +14,6 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { t } = useLanguage();
 
-  /* Auto-advance; reset timer on manual nav */
   const [timer, setTimer] = useState(null);
 
   const startTimer = useCallback(() => {
@@ -48,7 +47,7 @@ export default function Home() {
           <img
             key={index}
             src={imgUrl}
-            alt=""                          /* decorative; hero text carries meaning */
+            alt=""
             aria-hidden="true"
             className={`hero-image ${index === currentSlide ? "active" : ""}`}
             loading={index === 0 ? "eager" : "lazy"}
@@ -150,6 +149,36 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+
+        {/* ── MAP ── */}
+        <div className="footer-map">
+          <div className="footer-map-header">
+            <h4>{t("home.findUs") || "სად ვართ"}</h4>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=თელავი,+კახეთი,+საქართველო"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="directions-btn"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              {t("home.getDirections") || "მარშრუტი"}
+            </a>
+          </div>
+          <div className="map-wrapper">
+            <iframe
+              title="თელაველი რესიდენსი - ლოკაცია"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11896.123456789!2d45.4746!3d41.9173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404456a0a0a0a0a1%3A0x0!2sTelavi%2C+Georgia!5e0!3m2!1ska!2sge!4v1700000000000!5m2!1ska!2sge"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
 
         <div className="footer-bottom">
